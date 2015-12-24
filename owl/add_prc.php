@@ -1,4 +1,7 @@
 <?php
+/**
+
+**/
 	$judul = $_POST['judul'];
 	$penerbit = $_POST['penerbit'];
 	$tahun = $_POST['tahun'];
@@ -10,9 +13,12 @@
 					window.location.href='location:index.php?madyan_go=edit';
 				</script>";
 	} else {
+		$lokasi = 'location:index.php?madyan_go=edit';
 		echo 	"<script>
 					window.alert('Gagal tambah data');
+					//window.location.href='location:index.php?madyan_go=edit';
 				</script>";
-		$lokasi = 'location:index.php?madyan_go=edit';
-		header($lokasi);
+		printf("Error: %s\n", mysqli_error($koneksi));
+
+		//header($lokasi);
 	}
